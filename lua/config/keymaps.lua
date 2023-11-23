@@ -12,4 +12,11 @@ vim.keymap.set("n", "<leader>x", "<leader>bd", { desc = "Delete current buffer",
 vim.keymap.set("n", "<Tab>", "]b", { desc = "Next buffer", remap = true })
 vim.keymap.set("n", "<S-Tab>", "[b", { desc = "Previous buffer", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment selected", remap = true })
+vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment Line" })
+vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
 vim.keymap.set({ "n", "t" }, "<A-i>", lazyterm, { desc = "Toggle Terminal" })
+vim.keymap.set("n", "<leader>f", "<leader>cd", { desc = "Line Diagnostics", remap = true })
+
+-- move selection in visual mode
+vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", { desc = "Move selection down" })
