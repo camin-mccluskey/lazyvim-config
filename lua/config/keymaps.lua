@@ -8,11 +8,11 @@ local lazyterm = function()
 end
 
 vim.keymap.set("n", ";", ":", { desc = "Enter command mode" })
-vim.keymap.set("n", "<leader>x", "<leader>bd", { desc = "Delete current buffer", remap = true })
+vim.keymap.set("n", "<leader>z", "<leader>bd", { desc = "Delete current buffer", remap = true })
 vim.keymap.set("n", "<Tab>", "]b", { desc = "Next buffer", remap = true })
 vim.keymap.set("n", "<S-Tab>", "[b", { desc = "Previous buffer", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment selected", remap = true })
-vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment Line" })
+vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment Line", remap = true })
 vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
 vim.keymap.set({ "n", "t" }, "<A-i>", lazyterm, { desc = "Toggle Terminal" })
 vim.keymap.set("n", "<leader>f", "<leader>cd", { desc = "Line Diagnostics", remap = true })
