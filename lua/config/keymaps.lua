@@ -20,3 +20,6 @@ vim.keymap.set("n", "<leader>f", "<leader>cd", { desc = "Line Diagnostics", rema
 -- move selection in visual mode
 vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", { desc = "Move selection down" })
+
+-- Remap b/c iterm on mac won't let me use the alt key
+vim.keymap.set("i", "<A-3>", "#", { desc = "Insert hash symbol", remap = true })
