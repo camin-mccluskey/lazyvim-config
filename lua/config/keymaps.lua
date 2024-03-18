@@ -4,7 +4,7 @@
 
 local Util = require("lazyvim.util")
 local lazyterm = function()
-  Util.terminal(nil, { cwd = Util.root() })
+  Util.terminal(nil)
 end
 
 vim.keymap.set("n", ";", ":", { desc = "Enter command mode" })
