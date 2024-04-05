@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       "gopls",
       "pyright",
+      "bash-language-server",
     },
   },
 }
