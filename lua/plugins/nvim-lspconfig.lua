@@ -13,5 +13,16 @@ return {
         end)
       end,
     },
+    settings = {
+      tailwindcss = {
+        experimental = {
+          -- https://cva.style/docs/getting-started/installation
+          classRegex = {
+            { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+            { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+          },
+        },
+      },
+    },
   },
 }
