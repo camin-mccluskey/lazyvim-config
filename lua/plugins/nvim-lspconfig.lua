@@ -7,22 +7,22 @@ return {
         require("lazyvim.util").lsp.on_attach(function(client)
           if client.name == "eslint" then
             client.server_capabilities.documentFormattingProvider = true
-          elseif client.name == "tsserver" then
+          elseif client.name == "vtsls" then
             client.server_capabilities.documentFormattingProvider = false
           end
         end)
       end,
     },
-    settings = {
-      tailwindcss = {
-        experimental = {
-          -- https://cva.style/docs/getting-started/installation
-          classRegex = {
-            { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-            { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-          },
-        },
-      },
-    },
+    -- settings = {
+    --   tailwindcss = {
+    --     experimental = {
+    --       -- https://cva.style/docs/getting-started/installation
+    --       classRegex = {
+    --         { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+    --         { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+    --       },
+    --     },
+    --   },
+    -- },
   },
 }
