@@ -2,13 +2,14 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*",
   lazy = true,
-  event = {
-    -- only run this plugin for markdown files in my Obsidian vault
-    "BufReadPre "
-      .. vim.fn.expand("~")
-      .. "/Obsidian-camin-vault/**.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/Obsidian-camin-vault/**.md",
-  },
+  -- event = {
+  --   -- only run this plugin inside my Obsidian vault
+  --   "VimEnter "
+  --     .. vim.fn.expand("~")
+  --     .. "/Obsidian-camin-vault/*",
+  --   -- "BufNewFile " .. vim.fn.expand("~") .. "/Obsidian-camin-vault/**.md",
+  -- },
+  keys = { { "<leader>os", desc = "[O]bsidian - [S]tart Obsidian Plugin" } },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -19,9 +20,10 @@ return {
         path = "~/Obsidian-camin-vault",
       },
     },
+    new_notes_location = "notes_subdir",
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
-      folder = "02 Journal/Daily",
+      folder = "02 Journals/Daily",
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
       template = "05 Daily Journal",
     },
@@ -32,6 +34,15 @@ return {
       -- A map for custom variables, the key should be the variable and the value a function
       substitutions = {},
     },
+    mappings = {
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+      ["gf"] = {
+        action = function()
+          return require("obsidian").util.gf_passthrough()
+        end,
+        opts = { noremap = false, expr = true, buffer = true },
+      },
+    },
     use_advanced_uri = true,
     attachments = {
       -- The default folder to place images in via `:ObsidianPasteImg`.
@@ -41,13 +52,23 @@ return {
       -- A function that determines the text to insert in the note when pasting an image.
       -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
       -- This is the default implementation.
-      ---@param client obsidian.Client
-      ---@param path obsidian.Path the absolute path to the image file
-      ---@return string
+      -- @param client obsidian.Client
+      -- @param path obsidian.Path the absolute path to the image file
+      -- @return string
       img_text_func = function(client, path)
         path = client:vault_relative_path(path) or path
         return string.format("![%s](%s)", path.name, path)
       end,
     },
+    wiki_link_func = "use_alias_only",
+    disable_frontmatter = true, -- I thibk it's true that we don't want the plugin to "manage" frontmatter - we'd still like to edit it
+    -- Optional, customize how note file names are generated given the ID, target directory, and title.
+    -- @param spec { id: string, dir: obsidian.Path, title: string|? }
+    -- @return string|obsidian.Path The full path to the new note.
+    note_path_func = function(spec)
+      -- This is equivalent to the default behavior.
+      local path = spec.dir / spec.title
+      return path:with_suffix(".md")
+    end,
   },
 }

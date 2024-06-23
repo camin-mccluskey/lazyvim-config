@@ -7,3 +7,11 @@ vim.diagnostic.config({
     source = true,
   },
 })
+
+-- disable autoformat for markdown files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "markdown" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})

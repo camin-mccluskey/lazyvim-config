@@ -23,3 +23,22 @@ vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", { desc = "Move selection down" }
 
 -- Remap b/c iterm on mac won't let me use the alt key
 vim.keymap.set("i", "<A-3>", "#", { desc = "Insert hash symbol", remap = true })
+
+-- insert today's date in the format YYYY-MM-DD
+vim.keymap.set("i", "<C-d>", "<C-r>=strftime('%Y-%m-%d')<CR>", { desc = "Insert today's date" })
+
+-- Obsidian Plugin Keymaps
+vim.keymap.set(
+  "n",
+  "<leader>od",
+  "<cmd>ObsidianToday<CR>",
+  { desc = "[O]bsidian - open (or create) today's [D]aily note" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>om",
+  "<cmd>ObsidianToday 1<CR>",
+  { desc = "[O]bsidian - open (or create) to[M]orrow's [D]aily note", noremap = true }
+)
+vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "[O]bsidian - Create new [N]ote" })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "[O]bsidian - Insert [T]emplate" })
