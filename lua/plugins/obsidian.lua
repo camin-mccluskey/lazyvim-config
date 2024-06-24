@@ -9,7 +9,11 @@ return {
   --     .. "/Obsidian-camin-vault/*",
   --   -- "BufNewFile " .. vim.fn.expand("~") .. "/Obsidian-camin-vault/**.md",
   -- },
-  keys = { { "<leader>os", desc = "[O]bsidian - [S]tart Obsidian Plugin" } },
+  -- keys = { { "<leader>os", desc = "[O]bsidian - [S]tart Obsidian Plugin" } },
+  enabled = function()
+    return vim.fn.getcwd() == vim.fn.expand("~") .. "/Obsidian-camin-vault"
+  end,
+  event = "VimEnter",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -69,6 +73,14 @@ return {
       -- This is equivalent to the default behavior.
       local path = spec.dir / spec.title
       return path:with_suffix(".md")
+    end,
+    -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+    -- URL it will be ignored but you can customize this behavior here.
+    ---@param url string
+    follow_url_func = function(url)
+      -- Open the URL in the default web browser.
+      vim.fn.jobstart({ "open", url }) -- Mac OS
+      -- vim.fn.jobstart({"xdg-open", url})  -- linux
     end,
   },
 }
