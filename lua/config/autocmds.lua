@@ -11,6 +11,15 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "prisma" },
 })
 
+-- Disabled folding for particular buffer types
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "neo-tree" },
+  callback = function()
+    require("ufo").detach()
+    vim.opt_local.foldenable = false
+  end,
+})
+
 -- Example lsp attach on autocmd
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "markdown",

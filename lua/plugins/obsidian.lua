@@ -65,7 +65,23 @@ return {
       end,
     },
     wiki_link_func = "use_alias_only",
-    disable_frontmatter = true, -- I thibk it's true that we don't want the plugin to "manage" frontmatter - we'd still like to edit it
+    disable_frontmatter = false, -- I thibk it's true that we don't want the plugin to "manage" frontmatter - we'd still like to edit it
+    -- Optional, alternatively you can customize the frontmatter data.
+    ---@return table
+    note_frontmatter_func = function(note)
+      local out = { aliases = note.aliases, tags = note.tags }
+
+      -- `note.metadata` contains any manually added fields in the frontmatter.
+      -- So here we just make sure those fields are kept in the frontmatter.
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
+      end
+
+      return out
+    end,
+
     -- Optional, customize how note file names are generated given the ID, target directory, and title.
     -- @param spec { id: string, dir: obsidian.Path, title: string|? }
     -- @return string|obsidian.Path The full path to the new note.
