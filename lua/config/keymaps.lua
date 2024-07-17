@@ -25,7 +25,7 @@ vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", { desc = "Move selection down" }
 vim.keymap.set("i", "<A-3>", "#", { desc = "Insert hash symbol", remap = true })
 
 -- insert today's date in the format YYYY-MM-DD
-vim.keymap.set("i", "<C-d>", "<C-r>=strftime('%Y-%m-%d')<CR>", { desc = "Insert today's date" })
+vim.keymap.set("i", "<M-d>", "<C-r>=strftime('%Y-%m-%d')<CR>", { desc = "Insert today's date", remap = true })
 
 -- Obsidian Plugin Keymaps
 vim.keymap.set(
@@ -42,3 +42,5 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "[O]bsidian - Create new [N]ote" })
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "[O]bsidian - Insert [T]emplate" })
+vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "[O]bsidian - [Q]uick switch" })
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "[O]bsidian - [B]ack links" })
