@@ -12,7 +12,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    otps = {
+    opts = {
       variant = "moon",
       styles = {
         bold = true,
