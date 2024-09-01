@@ -23,40 +23,5 @@ return {
         single_file_support = false,
       },
     },
-    setup = {
-      eslint = function()
-        require("lazyvim.util").lsp.on_attach(function(client)
-          if client.name == "eslint" then
-            client.server_capabilities.documentFormattingProvider = true
-          elseif client.name == "vtsls" then
-            client.server_capabilities.documentFormattingProvider = false
-          elseif client.name == "biome" then
-            client.server_capabilities.documentFormattingProvider = false
-          end
-        end)
-      end,
-      biome = function()
-        require("lazyvim.util").lsp.on_attach(function(client)
-          if client.name == "biome" then
-            client.server_capabilities.documentFormattingProvider = true
-          elseif client.name == "vtsls" then
-            client.server_capabilities.documentFormattingProvider = false
-          elseif client.name == "eslint" then
-            client.server_capabilities.documentFormattingProvider = false
-          end
-        end)
-      end,
-    },
-    -- settings = {
-    --   tailwindcss = {
-    --     experimental = {
-    --       -- https://cva.style/docs/getting-started/installation
-    --       classRegex = {
-    --         { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-    --         { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-    --       },
-    --     },
-    --   },
-    -- },
   },
 }

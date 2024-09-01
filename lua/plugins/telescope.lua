@@ -2,9 +2,6 @@ local actions = require("telescope.actions")
 
 return {
   "nvim-telescope/telescope.nvim",
-  mappings = {
-    ["C-S-q"] = actions.send_selected_to_qflist + actions.open_qflist,
-  },
   opts = {
     defaults = {
       layout_strategy = "horizontal",

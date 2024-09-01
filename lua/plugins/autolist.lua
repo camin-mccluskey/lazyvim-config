@@ -1,6 +1,7 @@
 -- For a better experience with lists in plain text files
 return {
   "gaoDean/autolist.nvim",
+  enabled = false,
   dependencies = {
     "hrsh7th/nvim-cmp", -- load after nvim-cmp
   },
