@@ -4,7 +4,7 @@ local function biome_lsp_or_prettier(bufnr)
     name = "biome",
   })[1]
   if has_biome_lsp then
-    return {}
+    return { "biome" }
   end
   local has_prettier = vim.fs.find({
     -- https://prettier.io/docs/en/configuration.html
@@ -22,7 +22,6 @@ local function biome_lsp_or_prettier(bufnr)
   if has_prettier then
     return { "prettier" }
   end
-  return { "biome" }
 end
 
 return {
@@ -30,6 +29,7 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
+      default_format_opts = { timeout_ms = 3000 },
       formatters_by_ft = {
         ["javascript"] = biome_lsp_or_prettier,
         ["javascriptreact"] = biome_lsp_or_prettier,
