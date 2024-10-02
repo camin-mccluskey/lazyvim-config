@@ -29,7 +29,6 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      default_format_opts = { timeout_ms = 3000 },
       formatters_by_ft = {
         ["javascript"] = biome_lsp_or_prettier,
         ["javascriptreact"] = biome_lsp_or_prettier,

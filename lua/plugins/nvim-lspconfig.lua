@@ -2,6 +2,7 @@ local util = require("lspconfig.util")
 
 return {
   "neovim/nvim-lspconfig",
+  version = "*",
   opts = {
     servers = {
       eslint = {
