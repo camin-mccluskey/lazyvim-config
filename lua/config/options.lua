@@ -15,3 +15,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.b.autoformat = false
   end,
 })
+
+-- insist on prettier config file to format with prettier
+vim.g.lazyvim_prettier_needs_config = true
