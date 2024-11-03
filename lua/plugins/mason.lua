@@ -5,7 +5,7 @@ return {
       "gopls",
       "pyright",
       "bash-language-server",
-      "biome",
+      -- "biome",
     },
   },
 }

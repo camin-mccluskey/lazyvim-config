@@ -1,6 +1,8 @@
 return {
   "pmizio/typescript-tools.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  opts = {},
+  opts = {
+    tsserver_max_memory = 8192,
+  },
 }
