@@ -7,6 +7,8 @@ vim.diagnostic.config({
     source = true,
   },
 })
+vim.lsp.set_log_level("off")
+vim.g.snacks_animate = false
 
 -- disable autoformat for markdown files
 vim.api.nvim_create_autocmd({ "FileType" }, {

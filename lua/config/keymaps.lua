@@ -2,18 +2,13 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- local Util = require("lazyvim.util")
--- local lazyterm = function()
---   Util.terminal(nil)
--- end
-
 vim.keymap.set("n", ";", ":", { desc = "Enter command mode" })
 vim.keymap.set("n", "<leader>z", "<leader>bd", { desc = "Delete current buffer", remap = true })
 vim.keymap.set("n", "<Tab>", "]b", { desc = "Next buffer", remap = true })
 vim.keymap.set("n", "<S-Tab>", "[b", { desc = "Previous buffer", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment selected", remap = true })
 vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment Line", remap = true })
-vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { desc = "Live Grep" })
 vim.keymap.set({ "n", "t" }, "<A-i>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Toggle Terminal (Root Dir)" })
@@ -55,3 +50,12 @@ vim.keymap.set(
   ":!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>",
   { silent = true }
 )
+
+-- Codecompanion keymaps
+vim.keymap.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])

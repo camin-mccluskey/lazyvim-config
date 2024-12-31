@@ -65,6 +65,7 @@ return {
         end
         return result
       end)(),
+      default_formatter_opts = { timeout_ms = 5000 },
     },
   },
 }
