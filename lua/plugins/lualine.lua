@@ -18,5 +18,8 @@ return {
       lualine_z = {},
     },
     extensions = {},
+    options = {
+      theme = require("utils.rose-pine"),
+    },
   },
 }
