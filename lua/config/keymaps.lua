@@ -43,14 +43,6 @@ vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "[O]bsid
 vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "[O]bsidian - [Q]uick switch" })
 vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "[O]bsidian - [B]ack links" })
 
--- override lazygit to open in new tmux window
-vim.keymap.set(
-  "n",
-  "<leader>gg",
-  ":!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>",
-  { silent = true }
-)
-
 -- Codecompanion keymaps
 vim.keymap.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })

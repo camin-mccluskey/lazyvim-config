@@ -10,11 +10,10 @@ return {
       publish_diagnostic_on = "insert_leave",
       tsserver_path = nil,
       tsserver_max_memory = 20000,
-      tsserver_format_options = {},
       tsserver_file_preferences = {
         completions = { completeFunctionCalls = true },
         init_options = { preferences = { disableSuggestions = true } },
-        importModuleSpecifierPreference = "project-relative",
+        importModuleSpecifierPreference = "auto",
         jsxAttributeCompletionStyle = "braces",
       },
       tsserver_locale = "en",

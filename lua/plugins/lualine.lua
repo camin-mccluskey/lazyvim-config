@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons", "rose-pine/neovim" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "rose-pine/neovim", "yavorski/lualine-macro-recording.nvim" },
   opts = {
     refresh = {
       statusline = 1500,
@@ -10,7 +10,8 @@ return {
     sections = {
       lualine_a = { "branch" },
       lualine_b = {},
-      lualine_x = { "diff" },
+      lualine_c = {},
+      lualine_x = { "macro_recording", "diff" },
       lualine_y = {
         { "progress", separator = " ", padding = { left = 1, right = 0 } },
         { "location", padding = { left = 0, right = 1 } },
@@ -18,8 +19,6 @@ return {
       lualine_z = {},
     },
     extensions = {},
-    options = {
-      theme = require("utils.rose-pine"),
-    },
+    theme = require("utils.rose-pine"),
   },
 }
