@@ -4,15 +4,26 @@ return {
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
-    provider = "ollama",
-    vendors = {
-      ollama = {
-        __inherited_from = "openai",
-        api_key_name = "",
-        endpoint = "http://127.0.0.1:1234/v1",
-        model = "deepseek-r1-distill-llama-8b",
-      },
+    provider = "claude",
+    claude = {
+      endpoint = "https://api.anthropic.com",
+      model = "claude-3-7-sonnet-20250219",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 8000,
+      disable_tools = true,
     },
+    -- orovider = "ollama",
+    -- vendors = {
+    --   ollama = {
+    --     __inherited_from = "openai",
+    --     api_key_name = "",
+    --     -- endpoint = "http://127.0.0.1:1234/v1",
+    --     -- model = "deepseek-r1-distill-llama-8b",
+    --     endpoint = "http://127.0.0.1:11434/v1",
+    --     model = "deepseek-coder-v2:16b",
+    --   },
+    -- },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
