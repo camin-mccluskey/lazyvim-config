@@ -1,4 +1,4 @@
-local client = vim.lsp.start_client({
+local client = vim.lsp.start({
   name = "educationallsp",
   cmd = {
     "/Users/caminmccluskey/projects/educationallsp/bin/educationallsp",
