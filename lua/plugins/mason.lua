@@ -1,12 +1,10 @@
 return {
-  "williamboman/mason.nvim",
-  version = "1.11.0",
+  "mason-org/mason.nvim",
   opts = {
     ensure_installed = {
       "gopls",
       "pyright",
       "bash-language-server",
-      -- "biome",
     },
   },
 }
