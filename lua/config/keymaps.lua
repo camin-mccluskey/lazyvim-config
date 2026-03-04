@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>z", "<leader>bd", { desc = "Delete current buffer",
 vim.keymap.set("n", "<Tab>", "]b", { desc = "Next buffer", remap = true })
 vim.keymap.set("n", "<S-Tab>", "[b", { desc = "Previous buffer", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment selected", remap = true })
-vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment Line", remap = true })
+-- vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment Line", remap = true, noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { desc = "Live Grep" })
 vim.keymap.set({ "n", "t" }, "<A-i>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })

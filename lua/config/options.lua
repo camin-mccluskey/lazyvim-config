@@ -21,3 +21,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- insist on prettier config file to format with prettier
 vim.g.lazyvim_prettier_needs_config = true
 vim.g.lazyvim_eslint_auto_format = true
+
+-- use write in place for file watchers
+vim.opt.backupcopy = "yes"
